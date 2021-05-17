@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:59679",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "",
+      "environmentVariables": {
+        "SOLACE_MAX_RETRIES": "5",
+        "BROKER_TIPO": "MEMORY"
+      }
+    },
+    "service_local": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "launchUrl": "",
+      "applicationUrl": "http://localhost:6010",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "BROKER_TIPO": "RABBIT",
+        "MONGO_HOST": "localhost",
+        "MONGO_PORT": "27017",
+        "RABBIT_URL": "localhost",
+        "RABBIT_VHOST": "/",
+        "RABBIT_AMQP_PORT": "5672",
+        "RABBIT_USERNAME": "guest",
+        "RABBIT_PASSWORD": "guest"
+      }
+    }
+  }
+}

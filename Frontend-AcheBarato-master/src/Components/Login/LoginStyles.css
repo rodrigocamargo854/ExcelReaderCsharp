@@ -1,0 +1,63 @@
+    
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    label {
+        display: block;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        margin-left: 5rem;
+    }
+    
+    .form-control {
+        display: flex;
+        margin-left: 5rem;
+        display: block;
+        width: 57%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #f2f5f8;
+        border-color: #719ECE;
+        border-radius: 0.5rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+    .form-group {
+        display: block;
+        margin-bottom: 2rem;
+    }
+    
+    h3,
+    label {
+        display: block;
+        font-weight: 400;
+        font-family: 'Fira Sans', sans-serif;
+    }
+    
+    .h3-login {
+        display: block;
+        text-align: center;
+        margin: 0;
+        line-height: 1;
+        padding-bottom: 20px;
+    }
+
+    .img-login{
+       
+       width: 180px;
+    }
+
+    .img-loginback{
+        position: relative;
+        left: -24rem;
+        top: 13rem;
+        width: 50px;
+     }
+ 

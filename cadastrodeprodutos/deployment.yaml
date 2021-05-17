@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cadastroprodutos-deployment
+  namespace: academy
+  labels:
+    app: cadastroprodutos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cadastroprodutos
+  template:
+    metadata:
+      labels:
+        app: cadastroprodutos
+    spec:
+      containers:
+      - name: cadastroprodutos
+        image: docker.ambevdevs.com.br/cadastroprodutos
+        imagePullPolicy: Always
+        env:
+        - name: MONGO_HOST
+          value: "academy-vm-mongo"        
+        - name: MONGO_PORT
+          value: "27017"        
+        - name: RABBIT_URL
+          value: "academy-vm-rabbit"        
+        - name: RABBIT_VHOST
+          value: "/"        
+        - name: RABBIT_AMQP_PORT
+          value: "5672"        
+        - name: RABBIT_USERNAME
+          value: "guest"        
+        - name: RABBIT_PASSWORD
+          value: "guest"        
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: nexusambevdevs         
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cadastroprodutos-service
+  namespace: academy
+spec:
+  selector:
+    app: cadastroprodutos
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.com/health-checks: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  labels:
+    release: cadastroprodutos
+  name: cadastroprodutos-ingress
+  namespace: academy
+spec:
+  rules:
+  - host: platform-academy.ambevdevs.com.br
+    http:
+      paths:
+      - backend:
+          serviceName: cadastroprodutos-service
+          servicePort: 80
+        path: /cadastroprodutos(/|$)(.*)
+status:
+  loadBalancer:
+    ingress:
+    - {}

@@ -1,0 +1,96 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.WebApi", "src\CadastroProdutos.WebApi\CadastroProdutos.WebApi.csproj", "{665F07C2-88C2-4859-8977-06C2CC614024}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{FD1F9A6E-C39A-4695-A7D7-D2A73F6D7642}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-mongo.yml = docker-compose-mongo.yml
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.Negocio", "src\CadastroProdutos.Negocio\CadastroProdutos.Negocio.csproj", "{F21632F9-6299-42DF-A03A-72F187F9DDDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{9024F65B-D54E-4E59-9777-CCA3E79F3763}"
+	ProjectSection(SolutionItems) = preProject
+		tests\docker-compose.yml = tests\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.Tests", "tests\CadastroProdutos.Tests\CadastroProdutos.Tests.csproj", "{7BCD67DE-0B9C-4F59-8415-390C05031C28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helm", "Helm", "{E621F5A4-29D5-4FC0-9DAC-588280A8EFF2}"
+	ProjectSection(SolutionItems) = preProject
+		cadastroprodutos\.helmignore = cadastroprodutos\.helmignore
+		cadastroprodutos\templates\_helpers.tpl = cadastroprodutos\templates\_helpers.tpl
+		cadastroprodutos\Chart.yaml = cadastroprodutos\Chart.yaml
+		cadastroprodutos\templates\deployment.yaml = cadastroprodutos\templates\deployment.yaml
+		cadastroprodutos\templates\NOTES.txt = cadastroprodutos\templates\NOTES.txt
+		cadastroprodutos\templates\secrets.yaml = cadastroprodutos\templates\secrets.yaml
+		cadastroprodutos\templates\service.yaml = cadastroprodutos\templates\service.yaml
+		cadastroprodutos\values.yaml = cadastroprodutos\values.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuracoes", "Configuracoes", "{CF9B9FE9-F1F7-4729-84F8-89962D2EC50D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		log4net.config = log4net.config
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.Eventos", "src\CadastroProdutos.Eventos\CadastroProdutos.Eventos.csproj", "{B807ECD0-4A9B-4A99-966D-64143138C4AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.Dados", "src\CadastroProdutos.Dados\CadastroProdutos.Dados.csproj", "{A207151E-56AB-4A18-9BD0-374E3AD292B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.Integracao.Tests", "tests\CadastroProdutos.Integracao.Tests\CadastroProdutos.Integracao.Tests.csproj", "{868B160B-B349-45D6-A7D9-A7F2A7A9FA97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CadastroProdutos.TestBuilders", "tests\CadastroProdutos.TestBuilders\CadastroProdutos.TestBuilders.csproj", "{66D2382B-3E9A-4019-B589-F74BE4BD734C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{665F07C2-88C2-4859-8977-06C2CC614024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665F07C2-88C2-4859-8977-06C2CC614024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665F07C2-88C2-4859-8977-06C2CC614024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665F07C2-88C2-4859-8977-06C2CC614024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21632F9-6299-42DF-A03A-72F187F9DDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21632F9-6299-42DF-A03A-72F187F9DDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21632F9-6299-42DF-A03A-72F187F9DDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21632F9-6299-42DF-A03A-72F187F9DDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCD67DE-0B9C-4F59-8415-390C05031C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCD67DE-0B9C-4F59-8415-390C05031C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCD67DE-0B9C-4F59-8415-390C05031C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCD67DE-0B9C-4F59-8415-390C05031C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B807ECD0-4A9B-4A99-966D-64143138C4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B807ECD0-4A9B-4A99-966D-64143138C4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B807ECD0-4A9B-4A99-966D-64143138C4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B807ECD0-4A9B-4A99-966D-64143138C4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A207151E-56AB-4A18-9BD0-374E3AD292B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A207151E-56AB-4A18-9BD0-374E3AD292B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A207151E-56AB-4A18-9BD0-374E3AD292B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A207151E-56AB-4A18-9BD0-374E3AD292B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868B160B-B349-45D6-A7D9-A7F2A7A9FA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868B160B-B349-45D6-A7D9-A7F2A7A9FA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868B160B-B349-45D6-A7D9-A7F2A7A9FA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868B160B-B349-45D6-A7D9-A7F2A7A9FA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D2382B-3E9A-4019-B589-F74BE4BD734C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D2382B-3E9A-4019-B589-F74BE4BD734C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D2382B-3E9A-4019-B589-F74BE4BD734C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D2382B-3E9A-4019-B589-F74BE4BD734C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BCD67DE-0B9C-4F59-8415-390C05031C28} = {9024F65B-D54E-4E59-9777-CCA3E79F3763}
+		{868B160B-B349-45D6-A7D9-A7F2A7A9FA97} = {9024F65B-D54E-4E59-9777-CCA3E79F3763}
+		{66D2382B-3E9A-4019-B589-F74BE4BD734C} = {9024F65B-D54E-4E59-9777-CCA3E79F3763}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B99BF6A-CCB3-414B-B258-7D950C9D425B}
+	EndGlobalSection
+EndGlobal

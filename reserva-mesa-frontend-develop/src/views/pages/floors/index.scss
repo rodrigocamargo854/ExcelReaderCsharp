@@ -1,0 +1,51 @@
+@import "../../layout/skin.scss";
+
+.floors {
+  text-align: left;
+
+  .floors-table {
+    .ant-table-row {
+      cursor: pointer;
+    }
+  }
+}
+
+.ant-form {
+  display: flex;
+  flex-direction: column;
+
+  .ant-form-item {
+    margin: 0;
+  }
+
+  .ant-checkbox-wrapper {
+    display: flex;
+  }
+
+  .floors-modal-checkbox {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-right: 35px;
+    }
+  }
+
+  .floors-modal-text-input {
+    display: flex;
+    align-items: center;
+
+    .ant-row {
+      margin-right: 30px;
+      width: 60px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .ant-form {
+    .ant-form-item-control-input {
+      min-height: 0;
+    }
+  }
+}

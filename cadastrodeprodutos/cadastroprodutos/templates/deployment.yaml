@@ -1,0 +1,145 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cadastroprodutos.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "cadastroprodutos.name" . }}
+    helm.sh/chart: {{ include "cadastroprodutos.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "cadastroprodutos.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "cadastroprodutos.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecret }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          serviceAccountName: hercules
+          env:
+            - name: "SERVICE_VERSION"
+              value: "{{ .Values.image.tag }}"
+            - name: "TARGET_GEO"
+              value: {{ .Values.targetGeo }}
+            - name: "SENTRY_DSN"
+              valueFrom:
+                secretKeyRef:
+                  key:  sentry-dsn
+                  name: {{ .Release.Name }}-auth
+                  optional: true
+            - name: "MONGO_USERNAME"
+              valueFrom:
+                secretKeyRef:
+                  key:  mongodb-username
+                  name: {{ .Release.Name }}-auth
+            - name: "MONGO_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  key:  mongodb-password
+                  name: {{ .Release.Name }}-auth
+            - name: "MONGO_HOST"
+              value: {{ .Values.mongodb.mongodbServer }}
+            - name: "MONGO_PORT"
+              value: "{{ .Values.mongodb.mongodbPort }}"
+            - name: "MONGO_ARGUMENTS"
+              value: {{ .Values.mongodb.mongodbArgs }}
+            - name: "BROKER_TIPO"
+              value: {{ .Values.broker }}
+            - name: "PROMAX_HTTP_CLIENT"
+              value: {{ .Values.promaxClient }}
+            - name: "DD_SERVICE_NAME"
+              value: {{ .Values.apm.servico }}
+            - name: "DATADOG_ENV"
+              value: {{ .Values.apm.ambiente }}
+            - name: "DATADOG_APP_KEY"
+              value: {{ .Values.apm.dd_app_key }}
+            - name: "DATADOG_API_KEY"
+              value: {{ .Values.apm.dd_api_key }}
+            - name: "DD_AGENT_HOST"
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: "RABBIT_URL"
+              value: {{ .Values.rabbit.url }}
+            - name: "RABBIT_VHOST"
+              value: {{ .Values.rabbit.vhost }}
+            - name: "RABBIT_AMQP_PORT"
+              value: "{{ .Values.rabbit.port }}"
+            - name: "RABBIT_USERNAME"
+              valueFrom:
+                secretKeyRef:
+                  key:  rabbit-username
+                  name: {{ .Release.Name }}-auth
+            - name: "RABBIT_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  key:  rabbit-password
+                  name: {{ .Release.Name }}-auth
+          ports:
+              - name: http
+                containerPort: 80
+                protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - args:
+            - --reporter.grpc.host-port=dns:///hercules-jaeger-collector-headless.hercules-jaeger:14250
+            - --reporter.type=grpc
+          image: jaegertracing/jaeger-agent:1.13
+          imagePullPolicy: IfNotPresent
+          name: jaeger-agent
+          ports:
+            - containerPort: 5775
+              name: zk-compact-trft
+              protocol: TCP
+            - containerPort: 5778
+              name: config-rest
+              protocol: TCP
+            - containerPort: 6831
+              name: jg-compact-trft
+              protocol: TCP
+            - containerPort: 6832
+              name: jg-binary-trft
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

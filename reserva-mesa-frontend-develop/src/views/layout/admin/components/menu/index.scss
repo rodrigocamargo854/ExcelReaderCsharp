@@ -1,0 +1,15 @@
+@import "../../../skin.scss";
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected, .ant-menu-item-selected, .ant-menu-item:active, .ant-menu-submenu-title:active{
+    background-color: $color2b;
+}
+
+.ant-drawer-body{
+    padding: 24px 0;
+}
+.ant-menu-item-selected{
+    color: $color1;
+}
+.sidebar-left{
+    top: 0;
+}

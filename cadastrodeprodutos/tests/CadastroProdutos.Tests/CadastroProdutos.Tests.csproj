@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <AssemblyName>CadastroProdutos.Tests</AssemblyName>
+    <RootNamespace>CadastroProdutos.Tests</RootNamespace>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ProjectGuid>{7BCD67DE-0B9C-4F59-8415-390C05031C28}</ProjectGuid>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.msbuild" Version="2.5.1" />
+    <PackageReference Include="FluentAssertions" Version="5.7.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.9.0" />
+    <PackageReference Include="Messaging" Version="10.0.0" />
+    <PackageReference Include="NSubstitute" Version="4.2.1" />
+    <PackageReference Include="nunit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CadastroProdutos.Dados\CadastroProdutos.Dados.csproj" />
+    <ProjectReference Include="..\..\src\CadastroProdutos.Eventos\CadastroProdutos.Eventos.csproj" />
+    <ProjectReference Include="..\..\src\CadastroProdutos.Negocio\CadastroProdutos.Negocio.csproj" />
+    <ProjectReference Include="..\..\src\CadastroProdutos.WebApi\CadastroProdutos.WebApi.csproj" />
+    <ProjectReference Include="..\CadastroProdutos.TestBuilders\CadastroProdutos.TestBuilders.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,159 @@
+@import "../../layout/skin.scss";
+
+.ant-modal-confirm-btns {
+  width: 100%;
+
+  button {
+    position: relative;
+  }
+}
+
+.select-unit {
+  margin-bottom: 14px;
+  width: 100%;
+  text-align: left;
+}
+
+.select-floor {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.initial-datepicker {
+  margin-bottom: 14px;
+}
+
+.create-reservation-datepickers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  .initial {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .final {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.map-legend {
+  margin-top: 24px;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    .map-legend-item {
+      display: flex;
+      align-items: center;
+
+      div {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+
+        margin: 0 8px;
+      }
+
+      .map-legend-available {
+        background: $activeColor;
+      }
+
+      .map-legend-reserved {
+        background: $reservedColor;
+      }
+
+      .map-legend-inactive {
+        background: $inactiveColor;
+      }
+    }
+  }
+}
+
+@media (min-width: $tabletBreakpoint) {
+  .create-reservation-form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+
+    .create-reservation-selects {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .ant-select-selector {
+        height: 40px;
+      }
+
+      .select-unit {
+        width: 100%;
+        margin-right: 20px;
+      }
+
+      .select-floor {
+        width: 100%;
+      }
+    }
+
+    .create-reservation-datepickers {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-right: 20px;
+
+      width: 100%;
+
+      .initial {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-right: 20px;
+
+        .initial-datepicker {
+          height: 40px;
+        }
+      }
+
+      .final {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .final-datepicker {
+          height: 40px;
+        }
+      }
+    }
+
+    span {
+      font-size: 18px;
+      text-align: left;
+    }
+  }
+
+  .map-legend {
+    div {
+      .map-legend-item {
+        div {
+          width: 32px;
+          height: 32px;
+        }
+
+        span {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

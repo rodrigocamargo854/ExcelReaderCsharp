@@ -1,0 +1,31 @@
+@import "../../layout/skin.scss";
+
+.fullscreen-next-btn {
+  float: right;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  margin: 0.5%;
+}
+
+.fullscreen-enabled {
+  background-color: white;
+}
+
+.select-unit {
+  display: block;
+  width: 100%;
+}
+
+.select-floor {
+  display: block;
+  width: 100%;
+}
+
+.selects {
+  display: flex;
+}
+
+#root > section > section > section > div > div > div > main > div.selects {
+  text-align: left;
+}

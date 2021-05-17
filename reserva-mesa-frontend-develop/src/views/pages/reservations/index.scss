@@ -1,0 +1,49 @@
+@import "../../layout/skin.scss";
+
+.reservations-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    background: $alertColor;
+    color: #fff;
+  }
+
+  button:hover {
+    background: $alertColor;
+    color: #fff;
+  }
+}
+
+.reservations {
+  div {
+    text-align: left;
+  }
+}
+
+@media (min-width: $tabletBreakpoint) {
+  .reservations-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .reservations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      text-align: left;
+
+      span {
+        font-size: 16px;
+      }
+
+      input {
+        margin-top: 5px;
+        width: 300px;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "../skin.scss";
+
+body{
+  background-color: #fff;
+}
+
+.ant-spin-nested-loading > div > .ant-spin{
+  max-height: initial;
+  height: 100vh;
+}

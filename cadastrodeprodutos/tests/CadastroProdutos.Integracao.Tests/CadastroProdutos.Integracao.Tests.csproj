@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ProjectGuid>{868B160B-B349-45D6-A7D9-A7F2A7A9FA97}</ProjectGuid>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="coverlet.msbuild" Version="2.5.1" />
+        <PackageReference Include="FluentAssertions" Version="5.7.0" />
+        <PackageReference Include="Messaging" Version="10.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+        <PackageReference Include="NSubstitute" Version="4.2.1" />
+        <PackageReference Include="nunit" Version="3.11.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+        <PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\CadastroProdutos.Dados\CadastroProdutos.Dados.csproj" />
+      <ProjectReference Include="..\..\src\CadastroProdutos.WebApi\CadastroProdutos.WebApi.csproj" />
+      <ProjectReference Include="..\CadastroProdutos.TestBuilders\CadastroProdutos.TestBuilders.csproj" />
+    </ItemGroup>
+
+</Project>

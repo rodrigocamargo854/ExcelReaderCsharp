@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DebugType>full</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ProjectGuid>{B807ECD0-4A9B-4A99-966D-64143138C4AF}</ProjectGuid>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Google.Protobuf" Version="3.8.0" />
+      <PackageReference Include="Grpc" Version="2.26.0" />
+      <PackageReference Include="Grpc.Tools" Version="2.26.0" />
+    </ItemGroup>
+
+</Project>

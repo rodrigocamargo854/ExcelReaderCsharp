@@ -1,0 +1,89 @@
+# Default values for cadastroprodutos.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: docker.ambevdevs.com.br/hercules-cadastroprodutos
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+  pullSecret: nexus-ambevdevs
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+  annotations:
+    ad.datadoghq.com/tracking-consumer.logs: '[{"source": "tracking-consumer","service":"tracking-consumer","log_processing_rules":[{"type":"multi_line", "name":"log_start_with_date","pattern" : "\\d{4}\\-\\d{2}\\-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}"}]}]'
+
+
+ingress:
+  enabled: false
+  annotations: 
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+mongodb:
+  mongodbServer: "191.238.220.239"
+  mongodbPort: "10255"
+  mongodbArgs: "?ssl=false"
+  mongodbUsername: admin
+  mongodbPassword: admin
+
+broker: "SOLACE"
+
+rabbit:
+  url: "172.18.188.29"
+  username: ""
+  password: ""
+  port: "5672"
+  vhost: "/"
+
+solace:
+  url: "172.22.5.171"
+  username: ""
+  password: ""
+  messageVpn: ""
+  port: ""
+
+apm:
+  ambiente: ""
+  servico: "cadastro_produtos"
+  
+sentry:
+  dsn: ""
+  
+cachePrecos:
+  capacidade: "1000"
+  duracaoSegundos: "18000"

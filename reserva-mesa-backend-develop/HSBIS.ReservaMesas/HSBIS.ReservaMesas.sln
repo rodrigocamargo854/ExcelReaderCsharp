@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSIS.ReservaMesas.Web", "HBSIS.ReservaMesas.Web\HBSIS.ReservaMesas.Web.csproj", "{C2E336C7-E23A-46E5-8687-C5A2FFA7E94A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSIS.ReservaMesas.Domain", "HBSIS.ReservaMesas.Domain\HBSIS.ReservaMesas.Domain.csproj", "{74F44088-17D8-49D9-A01A-55509071030A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSIS.ReservaMesas.Persistence", "HBSIS.ReservaMesas.Persistence\HBSIS.ReservaMesas.Persistence.csproj", "{ECE1FF12-F153-423C-9381-F71565DC468C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSIS.ReservaMesas.Application", "HBSIS.ReservaMesas.Application\HBSIS.ReservaMesas.Application.csproj", "{34479FB7-F367-4B26-8651-72E86BF4FAF4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSIS.ReservaMesas.UnitTests", "HBSIS.ReservaMesas.UnitTests\HBSIS.ReservaMesas.UnitTests.csproj", "{FBC1BA36-06F3-46B6-92D1-9AF882ED30FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSIS.ReservaMesas.IntegrationTests", "HBSIS.ReservaMesas.IntegrationTests\HBSIS.ReservaMesas.IntegrationTests.csproj", "{3B242783-EE84-40CF-9AB8-B6A83826D682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HBSIS.ReservaMesas.Shared", "HBSIS.ReservaMesas.Shared\HBSIS.ReservaMesas.Shared.csproj", "{01668276-2FE6-49F5-8B78-22E75F6661B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2E336C7-E23A-46E5-8687-C5A2FFA7E94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E336C7-E23A-46E5-8687-C5A2FFA7E94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E336C7-E23A-46E5-8687-C5A2FFA7E94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E336C7-E23A-46E5-8687-C5A2FFA7E94A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F44088-17D8-49D9-A01A-55509071030A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F44088-17D8-49D9-A01A-55509071030A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F44088-17D8-49D9-A01A-55509071030A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F44088-17D8-49D9-A01A-55509071030A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE1FF12-F153-423C-9381-F71565DC468C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE1FF12-F153-423C-9381-F71565DC468C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE1FF12-F153-423C-9381-F71565DC468C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE1FF12-F153-423C-9381-F71565DC468C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34479FB7-F367-4B26-8651-72E86BF4FAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34479FB7-F367-4B26-8651-72E86BF4FAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34479FB7-F367-4B26-8651-72E86BF4FAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34479FB7-F367-4B26-8651-72E86BF4FAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC1BA36-06F3-46B6-92D1-9AF882ED30FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC1BA36-06F3-46B6-92D1-9AF882ED30FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC1BA36-06F3-46B6-92D1-9AF882ED30FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC1BA36-06F3-46B6-92D1-9AF882ED30FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B242783-EE84-40CF-9AB8-B6A83826D682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B242783-EE84-40CF-9AB8-B6A83826D682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B242783-EE84-40CF-9AB8-B6A83826D682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B242783-EE84-40CF-9AB8-B6A83826D682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01668276-2FE6-49F5-8B78-22E75F6661B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01668276-2FE6-49F5-8B78-22E75F6661B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01668276-2FE6-49F5-8B78-22E75F6661B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01668276-2FE6-49F5-8B78-22E75F6661B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7C6D959-3FCB-4FBD-A063-95311E15CF71}
+	EndGlobalSection
+EndGlobal

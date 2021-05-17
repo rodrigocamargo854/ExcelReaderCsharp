@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ProjectGuid>{66D2382B-3E9A-4019-B589-F74BE4BD734C}</ProjectGuid>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\CadastroProdutos.Dados\CadastroProdutos.Dados.csproj" />
+      <ProjectReference Include="..\..\src\CadastroProdutos.Eventos\CadastroProdutos.Eventos.csproj" />
+      <ProjectReference Include="..\..\src\CadastroProdutos.Negocio\CadastroProdutos.Negocio.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentAssertions" Version="5.7.0" />
+      <PackageReference Include="NSubstitute" Version="4.2.1" />
+    </ItemGroup>
+
+</Project>

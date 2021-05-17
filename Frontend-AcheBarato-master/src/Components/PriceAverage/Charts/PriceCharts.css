@@ -1,0 +1,14 @@
+    @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+    * {
+        box-sizing: border-box;
+    }
+  
+    .card-body .p {
+        display: block;
+        
+        font-weight: 500;
+        font-family: 'Fira Sans', sans-serif;
+        margin-top: 17px;
+        margin-bottom: 2rem;
+        height:100%;
+    }

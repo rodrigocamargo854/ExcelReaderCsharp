@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201105170909_UnityTable.cs" />
+    <Compile Remove="Migrations\20201105170909_UnityTable.Designer.cs" />
+    <Compile Remove="Migrations\20201105170929_UnityInitialSeed.cs" />
+    <Compile Remove="Migrations\20201105170929_UnityInitialSeed.Designer.cs" />
+    <Compile Remove="Migrations\20201109185626_FloorSeedsMigration.cs" />
+    <Compile Remove="Migrations\20201109185626_FloorSeedsMigration.Designer.cs" />
+    <Compile Remove="Migrations\20201110194025_RelationBetweenFloorAndUnity.cs" />
+    <Compile Remove="Migrations\20201110194025_RelationBetweenFloorAndUnity.Designer.cs" />
+    <Compile Remove="Migrations\20201112163211_RelationBetweenFloorsAndUnity.cs" />
+    <Compile Remove="Migrations\20201112163211_RelationBetweenFloorsAndUnity.Designer.cs" />
+    <Compile Remove="Migrations\20201214185440_AddCancellationDateOnReservation.cs" />
+    <Compile Remove="Migrations\20201214185440_AddCancellationDateOnReservation.Designer.cs" />
+    <Compile Remove="Migrations\20201214192147_SettingDefaultValueOfCancellationDate.cs" />
+    <Compile Remove="Migrations\20201214192147_SettingDefaultValueOfCancellationDate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HBSIS.ReservaMesas.Domain\HBSIS.ReservaMesas.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

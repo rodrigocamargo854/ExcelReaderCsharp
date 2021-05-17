@@ -1,0 +1,38 @@
+{
+  "AllowedHosts": "*",
+  "Secret": "ajsdhausd62313gshaJJJ",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5000/",
+      "sslPort": 0
+    }
+  },
+  "HBSIS.ReservaMesas.Web": {
+    "commandName": "Project",
+    "launchBrowser": true,
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "applicationUrl": "https://localhost:5001;http://localhost:5000"
+  },
+  "ConnectionStrings": {
+    "SqlServerConnection": "Server=localhost\\SQLEXPRESS;Database=ReservaMesas;User Id=sa;Password=sa;MultipleActiveResultSets=true"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ProjectGuid>{665F07C2-88C2-4859-8977-06C2CC614024}</ProjectGuid>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Datadog.Trace" Version="1.13.0" />
+    <PackageReference Include="Datadog.Trace.ClrProfiler.Managed" Version="1.13.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.9.0" />
+    <PackageReference Include="Grpc" Version="2.26.0" />
+    <PackageReference Include="Messaging" Version="10.0.0" />
+    <PackageReference Include="Jaeger" Version="0.3.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="OpenTracing.Contrib.Mongo" Version="0.2.2" />
+    <PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.6.1" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
+    <PackageReference Include="Sentry.AspNetCore" Version="2.0.0-beta4" />
+    <PackageReference Include="Sentry.Log4Net" Version="2.0.0-beta4" />
+    <PackageReference Include="System.Memory" Version="4.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CadastroProdutos.Dados\CadastroProdutos.Dados.csproj" />
+    <ProjectReference Include="..\CadastroProdutos.Eventos\CadastroProdutos.Eventos.csproj" />
+    <ProjectReference Include="..\CadastroProdutos.Negocio\CadastroProdutos.Negocio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\log4net.config">
+      <Link>log4net.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="..\..\README.md">
+      <Link>README.md</Link>
+    </None>
+  </ItemGroup>
+
+</Project>

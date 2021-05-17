@@ -1,0 +1,97 @@
+#Build Number
+name: '$(Rev:r)'
+
+# Set variables
+variables:
+- name: 'BuildConfiguration'
+  value: 'Debug'
+- name: 'projeto.nome'
+  value: 'cadastro_produtos'
+- name: 'projeto.nome.camelcase'
+  value: 'CadastroProdutos'
+- name: 'projeto.nome.lowercase'
+  value: 'cadastroprodutos'
+- name: 'system.debug'
+  value: false
+- name: 'WorkingDirectory'
+  value: 'services/$(projeto.nome)'
+- name: 'buildConfiguration'
+  value: 'Debug'
+- name: 'dockerImageNameNexus'
+  value: 'cadastroprodutos'
+ -name: 'sonarProjectKey'
+  value: 'ambev-$(projeto.nome.lowercase)'
+#Altere o nome acima para ficar de acordo com o valor da chave Project Key do seu projeto, no Sonar 
+
+resources:
+  repositories:
+    - repository: platform
+      type: git
+      name: ENGINEERING-TEAM/_git/platform  
+      ref: develop
+      endpoint: AMBEV Organization
+#O parâmetro acima é opcional. Se o seu projeto estiver dentro da Organization AMBEV-SA, pode apaga-lo.            
+ 
+# Trigger start deploy
+trigger:
+  batch: true
+  branches:
+    include: 
+      - 'developer'
+      - 'her*'
+      - 'feature/*'
+      - 'hotfix/*'
+      - 'fix/*'
+      - 'HER*'
+  paths:
+    include:
+      - '$(WorkingDirectory)'
+    exclude:
+      - '$(WorkingDirectory)/**/*.js'
+      - '$(WorkingDirectory)/**/*.md'
+pr: none
+
+
+stages:
+#Group Stage Start
+- stage: 'StartPipeline'
+  displayName: 'Start Pipeline'
+  jobs:
+  - job: Job_StartPipeline
+    displayName: 'Start Pipeline'
+    pool:
+      vmImage: windows-2019
+    steps:
+    - checkout: none
+    - powershell: |
+       echo "Pipeline starting...."
+      displayName: 'Start Pipeline'
+
+#Build and test
+- template: /templates/csharp/build-test-stage.yaml@platform
+  parameters:
+    WorkingDirectory: '$(WorkingDirectory)'
+    projectLower: '$(projeto.nome.lowercase)'
+    projectCamel: '$(projeto.nome.camelcase)'
+    projectVersion: '$(Build.BuildNumber)'
+    projectName: '$(projeto.nome)'
+    buildConfiguration: $(buildConfiguration)
+    sonarProjectKey: '$(sonarProjectKey)'    
+
+#Run mutation testes
+#- template: /templates/csharp/run-mutation-tests-stage.yaml
+#  parameters:
+#    WorkingDirectory: '$(WorkingDirectory)'
+#    projectName: '$(projeto.nome.camelcase)'
+
+#Publish Docker image
+- template: /templates/csharp/publish-docker-stage.yaml@platform
+  parameters:
+    WorkingDirectory: '$(WorkingDirectory)'
+    dockerImageName: '$(projeto.nome.lowercase)'
+    depends_on: 'JobSonar'
+    buildConfiguration: $(BuildConfiguration)
+    projectName: '$(projeto.nome.camelcase)'
+    buildNumber: '$(Build.BuildNumber)'
+    projectLower: '$(projeto.nome.lowercase)'
+    dockerImageNameNexus: '$(dockerImageNameNexus)'
