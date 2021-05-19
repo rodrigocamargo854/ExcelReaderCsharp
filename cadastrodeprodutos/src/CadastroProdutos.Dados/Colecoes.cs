@@ -9,7 +9,7 @@ namespace CadastroProdutos.Dados
         // TODO criar um atributo para as entidades, identificando o nome da coleção, e carregar de lá
         private static readonly Dictionary<Type, string> Mapeamento = new Dictionary<Type, string>
         {
-            { typeof(Entidades.CadastroProdutos), "cadastro_produtos_BRHBS1234" },
+            { typeof(Entidades.Produto), "cadastro_produtos_rodrigo.godoy" },
         };
 
         public static string ObterNomeColecao<TDocument>()

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Br.Com.Hbsis.Rpc.Produtos;
+using CadastroProdutos.WebApi.EventConsumers;
 using Messaging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,11 +19,11 @@ namespace CadastroProdutos.WebApi
             try
             {
                 var consumers = new List<IConsumer>()
-                {
-                    // eventManager.SubscribeToProtobufEvent(QueueNameFor<CadastroProdutosEvent>(), webHost.Services.GetService<CadastroProdutosEventConsumer>()),
-                    // or
-                    // eventManager.Subscribe(QueueNameFor<CadastroProdutosEvent>(), webHost.Services.GetService<CadastroProdutosEventConsumer>()),
-                };
+            {
+                eventManager.Subscribe(QueueNameFor<ProdutoIncluido>(), webHost.Services.GetService<ProdutoIncluidoEventConsumer>()),
+                // or
+                // eventManager.Subscribe(QueueNameFor<CadastroProdutosEvent>(), webHost.Services.GetService<CadastroProdutosEventConsumer>()),
+            };
 
                 foreach (var consumer in consumers)
                 {
@@ -41,7 +43,7 @@ namespace CadastroProdutos.WebApi
         private static string QueueNameFor<TEvent>(string geo = null)
         {
             geo = !string.IsNullOrWhiteSpace(geo) ? $"{geo}_" : string.Empty;
-            return $"cadastro_produtos_BRHBS1234_{geo}{typeof(TEvent).Name.ToLower()}";
+            return $"cadastro_produtos_rodrigo.godoy_{geo}{typeof(TEvent).Name.ToLower()}";
         }
     }
 }

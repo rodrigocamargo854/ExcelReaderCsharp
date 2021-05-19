@@ -10,7 +10,7 @@ namespace CadastroProdutos.Dados
     {
         public static readonly Lazy<IMapping<IEntidade>[]> Mappings = new Lazy<IMapping<IEntidade>[]>(() =>
         {
-            return typeof(CadastroProdutosMapping)
+            return typeof(ProdutosMapping)
                 .Assembly.GetTypes()
                 .Where(type => typeof(IMapping<IEntidade>).IsAssignableFrom(type))
                 .Where(type => !type.IsAbstract)

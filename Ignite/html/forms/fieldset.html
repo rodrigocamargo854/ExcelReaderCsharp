@@ -1,0 +1,51 @@
+
+<!--
+    
+
+// Definindo um formulario
+// action =   p onde vai
+//methord = POST ou GET (verbo)
+//GET como default
+//Não criar um form dentro de outro form
+
+    fieldset
+    -agrupamento de campos
+    -mesmo proposito
+    -semântico
+    -acessibilidade
+
+    Atributos Esoeciais
+    -disabled
+      -desabilita todos os elementos internos
+      -não serão enviados para submete o formulario
+    -form
+        - o d de um formulario ao qual esse fieldse pertence
+        - não precisa estar dentro do formulário
+    -name
+        - nome do grupo
+
+    <legend>
+        -nome do agrupamento
+        - primeiro elemento do fieldset
+    -->
+<!--Podemos fazer desta forma 
+com o agrupamento dentro do form -->
+<form action="" method="GET">
+    <fieldset>
+        <legend>Contato</legend>
+        <label for=""></label>
+        <input type="text">
+    </fieldset>
+</form>
+
+<!--Podemos fazer com o agrupamento fora
+do form, temos que inserir um id no form-->
+
+<form id="contato" action="" method="GET">
+</form>
+
+<fieldset form = 'contato'>
+    <legend>Contato</legend>
+    <label for=""></label>
+    <input type="text">
+</fieldset>

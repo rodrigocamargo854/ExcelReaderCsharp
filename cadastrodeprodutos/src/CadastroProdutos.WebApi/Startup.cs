@@ -15,6 +15,9 @@ using StatsdClient;
 using CadastroProdutos.Dados.Mongo;
 using Messaging.Brokers.Memory;
 using Datadog.Trace.Configuration;
+using CadastroProdutos.Dados.Mongo.Repositories;
+using CadastroProdutos.WebApi.EventConsumers;
+
 
 namespace CadastroProdutos.WebApi
 {
@@ -35,9 +38,9 @@ namespace CadastroProdutos.WebApi
         {
             ConfigureInfra(services);
             ConfigureApplicationServices(services);
-                    
+
             services.AddControllers();
-            services.AddSingleton<IRabbitInfoProvider, RabbitEnvInfoProvider>();            
+            services.AddSingleton<IRabbitInfoProvider, RabbitEnvInfoProvider>();
             services.AddSingleton<ITracer>(serviceProvider =>
             {
                 var serviceName = Environment.GetEnvironmentVariable("DD_SERVICE_NAME") ?? "cadastro_produtos";
@@ -54,14 +57,14 @@ namespace CadastroProdutos.WebApi
             services.AddOpenTracing();
             services.AddDataDog();
         }
-        
+
         private void ConfigureInfra(IServiceCollection services)
         {
             services.AddSingleton<IRabbitInfoProvider, RabbitEnvInfoProvider>();
             var settings = TracerSettings.FromDefaultSources();
             settings.ServiceName = "CadastroProdutos";
             settings.AnalyticsEnabled = true;
-            var datadogTracer = new Datadog.Trace.Tracer(settings);        
+            var datadogTracer = new Datadog.Trace.Tracer(settings);
             services.AddSingleton<IEventManager>(serviceProvider =>
             {
                 switch (Environment.GetEnvironmentVariable("BROKER_TIPO"))
@@ -77,9 +80,13 @@ namespace CadastroProdutos.WebApi
                         return new MemoryEventManager(serviceProvider.GetService<Datadog.Trace.Tracer>());
                 }
             });
-            
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddSingleton<IMongoInfoProvider, MongoEnvInfoProvider>();
             services.AddSingleton<IMongoDatabaseFactory, MongoDatabaseFactory>();
+            services.AddSingleton<IConsumerRegistry, ConsumerRegistry>(); 
+            services.AddTransient<ProdutoIncluidoEventConsumer>(); 
+            services.AddScoped<IProdutoRepository, ProdutoRepository>(); 
+            
             services.AddSingleton<IMongoDatabase>(serviceProvider =>
             {
                 var mongoDatabaseFactory = serviceProvider.GetService<IMongoDatabaseFactory>();
@@ -101,7 +108,7 @@ namespace CadastroProdutos.WebApi
             _logger.LogInformation("Rotas configuradas com sucesso");
         }
     }
-    
+
     public static class DataDogService
     {
         public static void AddDataDog(this IServiceCollection services)
